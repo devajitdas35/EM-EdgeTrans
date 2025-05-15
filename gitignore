@@ -1,0 +1,15 @@
+# Ignore Python cache and environment files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.env
+.venv
+
+# Ignore trace data files if too large
+*.cfile
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
