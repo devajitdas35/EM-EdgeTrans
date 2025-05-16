@@ -28,8 +28,6 @@ data/
 2. Install dependencies: `pip install -r requirements.txt`
 3. Run analysis or training scripts as needed
 
-## 📜 License
-This project is licensed under the MIT License.
 
 ## 🔗 Citation
 To cite this dataset, please refer to the related journal paper (link coming soon).
