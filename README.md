@@ -5,10 +5,11 @@ EM-EdgeTrans is a labeled EM side-channel dataset captured from a Raspberry Pi 4
 ## 📁 Dataset Structure
 ```
 data/
-├── idle/              # Idle EM traces
-├── operational/       # Sensor + MQTT publish traces
-├── malicious/         # MQTT flood attack traces
-├── trace_index.csv    # Metadata for all traces
+├── idle/               # Idle EM traces
+├── operational/        # Sensor + MQTT publish traces
+├── malicious/          # MQTT flood attack traces
+├── malicious_cpu/      # CPU stress (DoS-like) attack traces
+├── trace_index.csv     # Metadata for all traces
 ```
 
 ## ⚙️ Data Collection Setup
