@@ -17,7 +17,7 @@ data/
 - **Sensor:** HC-SR04 (Ultrasonic)
 - **EM Capture:** Near-field H-probe (9 kHz – 9 GHz)
 - **Receiver:** RTL-SDR v3 + GNU Radio
-- **Sampling Rate:** 2.048 MSPS, Center Freq: 100 MHz
+- **Sampling Rate:** 2.48 MSPS, Center Freq: 200 MHz
 
 ## 📈 Included Scripts
 - `scripts/`: For synchronized data capture and MQTT control
