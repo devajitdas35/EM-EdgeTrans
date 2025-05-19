@@ -11,12 +11,12 @@
    pip install -r requirements.txt
 
 ## Data Collection
-1. Run `idle_capture_loop.py` to collect idle traces.
-2. Run `em_capture_trigger.py` to capture traces during MQTT-based sensor transmission.
-3. Run `malicious_capture_loop.py` while executing MQTT flooding on the Pi to capture malicious traces.
-4. Each trace will be stored in `.cfile` format under its respective class folder (idle, operational, malicious).
-5. Traces are automatically indexed in `trace_index.csv`.
-
+1. Run `idle_capture_loop.py` to collect idle traces.  
+2. Run `em_capture_trigger.py` to capture traces during MQTT-based sensor transmission.  
+3. Run `malicious_capture_loop.py` while executing MQTT flooding on the Pi to capture malicious traces.  
+4. Run `malicious_cpu_capture_loop.py` while executing a CPU stress script (DoS-like activity) on the Pi to capture malicious CPU traces.  
+5. Each trace will be stored in `.cfile` format under its respective class folder (`idle`, `operational`, `malicious`, `malicious_cpu`).  
+6. Traces are automatically indexed in `trace_index.csv`.
 ## Data Analysis
 1. Run `preprocess_em_traces.py` to convert raw `.cfile` to numpy arrays (`X.npy`, `y.npy`).
 2. Run `plot_psd_combined.py` or `enhanced_psd_analysis.py` to generate Power Spectral Density plots.
