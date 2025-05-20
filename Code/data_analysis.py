@@ -1,8 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[2]:
-
+# Visualizes and compares the PSD of individual traces from the Idle and Operational classes (3 traces each).
 
 import os
 import numpy as np
@@ -60,7 +56,7 @@ plt.savefig("idle_operational.png", dpi=300, bbox_inches="tight")
 plt.show()
 
 
-# In[3]:
+# Visualizes and compares the PSD of individual traces from the Malicious and Malicious_CPU classes (3 traces each).
 
 
 import os
@@ -120,8 +116,7 @@ plt.savefig("malicious_malicious_cpu.png", dpi=300, bbox_inches="tight")
 plt.show()
 
 
-# In[5]:
-
+# Computes and plots the average PSD across 100 traces for all four activity classes. Includes Gaussian smoothing to highlight dominant frequency components.
 
 import os
 import numpy as np
@@ -183,8 +178,6 @@ plt.tight_layout()
 plt.savefig("combined_psd_average_100.pdf", bbox_inches="tight")
 plt.show()
 
-
-# In[ ]:
 
 
 
