@@ -1,13 +1,13 @@
 dataset_name: EM-EdgeTrans
 version: 1.0
-capture_date: 2025-04-28
+capture_date: 2025-05-17
 location: Lab Environment
 total_traces: 400
 
 rtl_sdr:
   center_frequency_hz: 200000000       # 200 MHz
   sample_rate_hz: 2400000              # 2.4 MSPS
-  gain_db: 30                          # Fixed gain
+  gain_db: 38.6                          # Fixed gain
 
 trace_capture:
   sample_type: complex64
@@ -23,7 +23,7 @@ activity_classes:
 
   - name: operational
     description: "Sensor + MQTT data publishing"
-    capture_script: em_capture_trigger.py
+    capture_script: operational_capture_loop.py
     num_traces: 100
 
   - name: malicious
