@@ -3,32 +3,76 @@
 EM-EdgeTrans is a labeled EM side-channel dataset captured from a Raspberry Pi 4B executing typical edge computing tasks in smart transportation settings. This dataset supports research in side-channel analysis, behavioral profiling, and lightweight intrusion detection.
 
 ## 📁 Dataset Structure
+
+```plaintext
+EM-EdgeTrans/
+├── Code/                              # Scripts for EM trace capture and analysis
+│   ├── cpu_stress.py                  # Script to stress CPU for DoS simulation
+│   ├── data_analysis.py               # PSD computation, visualization, ML
+│   ├── em_capture_script.py           # General capture handler
+│   ├── idle_capture_loop.py           # Capture idle state traces
+│   ├── operational_capture_loop.py    # Capture operational state (sensor + MQTT)
+│   ├── malicious_capture_loop.py      # Capture MQTT flood attack traces
+│   ├── malicious_cpu_capture_loop.py  # Capture CPU stress attack traces
+│   ├── mqtt_flood.py                  # MQTT flooding tool
+│   └── ultrasonic_sensor.py           # Sensor trigger script
+│
+├── Data/                              # Raw trace data and metadata
+│   ├── idle/                          # 100 EM traces (idle state)
+│   ├── operational/                   # 100 EM traces (sensor + MQTT)
+│   ├── malicious/                     # 100 EM traces (MQTT flood)
+│   ├── malicious_cpu/                 # 100 EM traces (CPU stress)
+│   ├── trace_index.csv                # Metadata for all traces
+│   └── capture_config.yaml            # SDR and capture configuration
+│
+├── README.md                          # Project overview and usage
+└── LICENSE                            # Dataset or code license
 ```
-data/
-├── idle/               # Idle EM traces
-├── operational/        # Sensor + MQTT publish traces
-├── malicious/          # MQTT flood attack traces
-├── malicious_cpu/      # CPU stress (DoS-like) attack traces
-├── trace_index.csv     # Metadata for all traces
-```
+
+---
 
 ## ⚙️ Data Collection Setup
-- **Device:** Raspberry Pi 4B (Broadcom BCM2711 Cortex-A72)
-- **Sensor:** HC-SR04 (Ultrasonic)
-- **EM Capture:** Near-field H-probe (9 kHz – 9 GHz)
-- **Receiver:** RTL-SDR v3 + GNU Radio
-- **Sampling Rate:** 2.48 MSPS, Center Freq: 200 MHz
 
-## 📈 Included Scripts
-- `scripts/`: For synchronized data capture and MQTT control
-- `analysis/`: PSD visualization and preprocessing tools
-- `meta_data.txt`: Class definitions and activity mapping
+- **Device**: Raspberry Pi 4B (Broadcom BCM2711 Cortex-A72)
+- **Sensor**: HC-SR04 Ultrasonic Sensor
+- **EM Probe**: Near-field magnetic probe (9 kHz – 9 GHz)
+- **Receiver**: RTL-SDR v3 with GNU Radio
+- **Sampling Rate**: 2.4 MSPS
+- **Center Frequency**: 200 MHz
+- **Trace Format**: `.cfile` with `complex64` IQ samples
+- **Trace Length**: 2,400,000 samples (~1 second)
 
-## 📄 Usage
-1. Clone this repo
-2. Install dependencies: `pip install -r requirements.txt`
-3. Run analysis or training scripts as needed
+---
 
+## 📈 Analysis & Usage
 
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/devajitdas35/EM-EdgeTrans.git
+   cd EM-EdgeTrans
+   ```
+
+2. Install dependencies:
+   ```bash
+   pip install -r Code/requirements.txt
+   ```
+
+3. Run analysis scripts:
+   ```bash
+   python Code/data_analysis.py
+   ```
+
+Each `.cfile` trace can be processed using Welch’s method for PSD, amplitude stats, or machine learning-based classification tasks. Example Jupyter notebooks are included for visual inspection and experiments.
+
+---
+
+## 🔬 Applications
+
+- Side-channel leakage characterization
+- Device behavior classification
+- Lightweight intrusion detection
+- Edge-based security monitoring
+
+---
 ## 🔗 Citation
 To cite this dataset, please refer to the related journal paper (link coming soon).
