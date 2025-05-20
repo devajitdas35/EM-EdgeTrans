@@ -8,7 +8,7 @@ EM-EdgeTrans is a labeled EM side-channel dataset captured from a Raspberry Pi 4
 EM-EdgeTrans/
 ├── Code/                              # Scripts for EM trace capture and analysis
 │   ├── cpu_stress.py                  # Script to stress CPU for DoS simulation
-│   ├── data_analysis.py               # PSD computation, visualization, ML
+│   ├── data_analysis.py               # PSD computation, visualization
 │   ├── em_capture_script.py           # General capture handler
 │   ├── idle_capture_loop.py           # Capture idle state traces
 │   ├── operational_capture_loop.py    # Capture operational state (sensor + MQTT)
@@ -23,10 +23,10 @@ EM-EdgeTrans/
 │   ├── malicious/                     # 100 EM traces (MQTT flood)
 │   ├── malicious_cpu/                 # 100 EM traces (CPU stress)
 │   ├── trace_index.csv                # Metadata for all traces
-│   └── capture_config.yaml            # SDR and capture configuration
+│   └── 
 │
 ├── README.md                          # Project overview and usage
-└── LICENSE                            # Dataset or code license
+└── capture_config.yaml            # SDR and capture configuration
 ```
 
 ---
