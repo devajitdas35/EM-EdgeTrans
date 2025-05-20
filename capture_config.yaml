@@ -1,0 +1,41 @@
+dataset_name: EM-EdgeTrans
+version: 1.0
+capture_date: 2025-04-28
+location: Lab Environment
+total_traces: 400
+
+rtl_sdr:
+  center_frequency_hz: 200000000       # 200 MHz
+  sample_rate_hz: 2400000              # 2.4 MSPS
+  gain_db: 30                          # Fixed gain
+
+trace_capture:
+  sample_type: complex64
+  trace_length_samples: 2400000        # 1 second at 2.4 MSPS
+  format: cfile
+  save_directory: ./                   # Update this in script as needed
+
+activity_classes:
+  - name: idle
+    description: "System powered on, no application activity"
+    capture_script: idle_capture_loop.py
+    num_traces: 100
+
+  - name: operational
+    description: "Sensor + MQTT data publishing"
+    capture_script: em_capture_trigger.py
+    num_traces: 100
+
+  - name: malicious
+    description: "MQTT flood attack (network-based DoS)"
+    capture_script: malicious_capture_loop.py
+    num_traces: 100
+
+  - name: malicious_cpu
+    description: "CPU stress (DoS-like resource usage)"
+    capture_script: malicious_cpu_capture_loop.py
+    num_traces: 100
+
+output:
+  file_extension: .cfile
+  metadata_index_file: trace_index.csv
